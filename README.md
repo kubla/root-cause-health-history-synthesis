@@ -8,6 +8,10 @@ Turn scattered memory, partial records, and evolving understanding into one livi
 
 Most medical-history workflows fail in one of two ways. They either become a bloated intake form that loses the person’s story, or they stay conversational but never harden into artifacts another clinician or AI system can reliably use. This skill is designed to close that gap.
 
+## License
+
+This repository is licensed under Apache License 2.0. That keeps the project broadly reusable while also giving downstream users an explicit patent grant and clear redistribution terms.
+
 ## What This Skill Is For
 
 Use this skill when the goal is to build or refine:

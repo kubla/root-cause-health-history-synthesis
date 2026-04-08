@@ -1,7 +1,7 @@
 ---
 name: root-cause-health-history-synthesis
 description: Interviews a person over one or more sessions to build a longitudinal, causally useful health history and produce structured outputs for clinicians and AI systems. Use when the task is to construct, refine, resume, or snapshot an extraordinary medical history for root-cause analysis, pre-visit preparation, or downstream AI consultation.
-license: Proprietary. LICENSE.txt has complete terms.
+license: Apache-2.0. LICENSE.txt has complete terms.
 compatibility: Designed for skills-compatible agents that support SKILL.md frontmatter, markdown references, file reads and writes, and progressive disclosure.
 metadata:
   version: "1.0"
