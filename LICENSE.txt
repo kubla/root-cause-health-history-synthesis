@@ -1,0 +1,10 @@
+Copyright (c) 2026. All rights reserved.
+
+This repository and its contents are proprietary.
+
+Permission is not granted to use, copy, modify, merge, publish, distribute,
+sublicense, or sell this software or its documentation without prior written
+permission from the copyright holder.
+
+The content is provided for private evaluation and authorized use only, without
+warranty of any kind, express or implied.

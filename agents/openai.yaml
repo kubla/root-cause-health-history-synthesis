@@ -1,0 +1,7 @@
+interface:
+  display_name: "Root Cause Health History Synthesis"
+  short_description: "Build resumable root-cause case histories"
+  default_prompt: "Use $root-cause-health-history-synthesis to build or resume a longitudinal health history, keep live case files updated, and publish clinician and AI briefs when the case is strong enough."
+
+policy:
+  allow_implicit_invocation: true

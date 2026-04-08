@@ -1,0 +1,102 @@
+{
+  "version": "1.0",
+  "skill": "root-cause-health-history-synthesis",
+  "cases": [
+    {
+      "id": "narrative-spine-first",
+      "prompt": "A user asks for help building a root-cause health history from scratch and starts by listing many symptoms without a timeline.",
+      "checks": [
+        "Begins by establishing last-known-well, onset, turning points, and current bottlenecks.",
+        "Avoids jumping straight into exhaustive domain sweeps."
+      ]
+    },
+    {
+      "id": "dynamic-plan-revision",
+      "prompt": "The user gives a new answer that changes the likely dominant cluster from anxiety to sleep disruption.",
+      "checks": [
+        "Updates the interview plan instead of continuing the prior branch unchanged.",
+        "Explains the next question in terms of leverage."
+      ]
+    },
+    {
+      "id": "symptom-clustering",
+      "prompt": "The case includes fatigue, brain fog, constipation, bloating, palpitations, and restless sleep across several years.",
+      "checks": [
+        "Groups symptoms into clusters rather than preserving a flat symptom list.",
+        "Captures timing, triggers, relievers, and functional impact for clusters."
+      ]
+    },
+    {
+      "id": "checkpoint-summary",
+      "prompt": "After several answers, the case has a clear story trunk and one strong symptom cluster.",
+      "checks": [
+        "Produces a checkpoint summary that sharpens the next move.",
+        "Reflects unresolved tensions and the next best question."
+      ]
+    },
+    {
+      "id": "resume-from-files",
+      "prompt": "A `.casework/<case-id>/` folder already contains CASE.md, PLAN.md, EVIDENCE.md, and OUTPUT.md.",
+      "checks": [
+        "Reads existing files before asking new intake questions.",
+        "Resumes the case without repeating already answered questions."
+      ]
+    },
+    {
+      "id": "evidence-capsule-integration",
+      "prompt": "An imported wearable-trend summary and lab-summary are present in `imports/`.",
+      "checks": [
+        "Maps evidence onto the timeline and symptom clusters.",
+        "Preserves provenance in EVIDENCE.md and the machine-readable case object."
+      ]
+    },
+    {
+      "id": "retire-resolved-questions",
+      "prompt": "An imported medication-reconciliation capsule answers the current medications question.",
+      "checks": [
+        "Removes or retires the resolved question from PLAN.md.",
+        "Does not ask the user to restate already imported facts."
+      ]
+    },
+    {
+      "id": "draft-when-strong-enough",
+      "prompt": "The case has a credible one-line summary, clear turning points, major clusters, and treatment history, but still has narrower open questions.",
+      "checks": [
+        "Produces draft artifacts instead of waiting for perfect completeness.",
+        "Leaves the remaining open questions explicit."
+      ]
+    },
+    {
+      "id": "baseline-snapshot",
+      "prompt": "The user asks for a frozen whole-case clinician snapshot once the case reaches snapshot-ready.",
+      "checks": [
+        "Creates immutable artifacts for the snapshot.",
+        "Updates the snapshot manifest with metadata."
+      ]
+    },
+    {
+      "id": "milestone-snapshot",
+      "prompt": "Weeks later, the user adds new evidence and requests a new milestone snapshot.",
+      "checks": [
+        "Preserves the earlier snapshot.",
+        "Records lineage and a delta note in the new snapshot."
+      ]
+    },
+    {
+      "id": "focused-audience-snapshot",
+      "prompt": "The user wants a fatigue-focused AI handoff derived from the same canonical case.",
+      "checks": [
+        "Generates a focused snapshot without creating a second incompatible case truth.",
+        "Adapts the rendering to the requested audience while preserving provenance."
+      ]
+    },
+    {
+      "id": "lineage-preserved",
+      "prompt": "The case has baseline, milestone, and specialist-focused snapshots.",
+      "checks": [
+        "Preserves snapshot lineage in both manifest and case-object metadata.",
+        "Keeps the live case mutable while historical snapshots remain unchanged."
+      ]
+    }
+  ]
+}

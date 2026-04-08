@@ -1,0 +1,491 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/root-cause-health-history-synthesis/case-object.schema.json",
+  "title": "Root Cause Health History Case Object",
+  "type": "object",
+  "required": [
+    "case_id",
+    "current_stage",
+    "one_line_summary",
+    "top_concerns",
+    "goals",
+    "timeline",
+    "turning_points",
+    "symptom_clusters",
+    "past_medical_history",
+    "medications",
+    "supplements",
+    "family_history",
+    "lifestyle",
+    "exposures",
+    "treatment_responses",
+    "imported_evidence",
+    "causal_map",
+    "contradictions",
+    "missing_information",
+    "practical_constraints",
+    "audience_renderings",
+    "snapshot_lineage"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "current_stage": {
+      "type": "string",
+      "enum": [
+        "orient",
+        "story-skeleton",
+        "dominant-cluster",
+        "targeted-branches",
+        "evidence-integration",
+        "gap-fill",
+        "synthesis-ready",
+        "snapshot",
+        "resume"
+      ]
+    },
+    "one_line_summary": {
+      "type": "string"
+    },
+    "top_concerns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "goals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/timelineEvent"
+      }
+    },
+    "turning_points": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/turningPoint"
+      }
+    },
+    "symptom_clusters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/symptomCluster"
+      }
+    },
+    "past_medical_history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/datedFact"
+      }
+    },
+    "medications": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/therapyItem"
+      }
+    },
+    "supplements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/therapyItem"
+      }
+    },
+    "family_history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/familyHistoryItem"
+      }
+    },
+    "lifestyle": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "exposures": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/datedFact"
+      }
+    },
+    "treatment_responses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/treatmentResponse"
+      }
+    },
+    "imported_evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceCapsule"
+      }
+    },
+    "causal_map": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/causalFactor"
+      }
+    },
+    "contradictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_information": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "practical_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audience_renderings": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "snapshot_lineage": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/snapshotMetadata"
+      }
+    }
+  },
+  "$defs": {
+    "timelineEvent": {
+      "type": "object",
+      "required": [
+        "label"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "turningPoint": {
+      "type": "object",
+      "required": [
+        "label"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "why_it_matters": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "symptomCluster": {
+      "type": "object",
+      "required": [
+        "label"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "onset": {
+          "type": "string"
+        },
+        "current_severity": {
+          "type": "string"
+        },
+        "frequency": {
+          "type": "string"
+        },
+        "pattern": {
+          "type": "string"
+        },
+        "triggers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relievers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "functional_impact": {
+          "type": "string"
+        },
+        "linked_events": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "linked_treatments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "linked_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "datedFact": {
+      "type": "object",
+      "required": [
+        "label"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "therapyItem": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "dose": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "familyHistoryItem": {
+      "type": "object",
+      "required": [
+        "relation",
+        "finding"
+      ],
+      "properties": {
+        "relation": {
+          "type": "string"
+        },
+        "finding": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "treatmentResponse": {
+      "type": "object",
+      "required": [
+        "intervention",
+        "response"
+      ],
+      "properties": {
+        "intervention": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "response": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidenceCapsule": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "source_kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "source_skill": {
+          "type": "string"
+        },
+        "source_kind": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "key_facts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "provenance": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "structural_or_dynamic": {
+          "type": "string"
+        },
+        "likely_relevance": {
+          "type": "string"
+        },
+        "questions_raised": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "causalFactor": {
+      "type": "object",
+      "required": [
+        "factor",
+        "type"
+      ],
+      "properties": {
+        "factor": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "antecedent",
+            "trigger",
+            "mediator",
+            "perpetuator",
+            "protective factor"
+          ]
+        },
+        "period": {
+          "type": "string"
+        },
+        "linked_symptoms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "modifiability": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "snapshotMetadata": {
+      "type": "object",
+      "required": [
+        "snapshot_id",
+        "created_at",
+        "focus",
+        "audience"
+      ],
+      "properties": {
+        "snapshot_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "parent_snapshot": {
+          "type": "string"
+        },
+        "focus": {
+          "type": "string"
+        },
+        "audience": {
+          "type": "string"
+        },
+        "basis": {
+          "type": "string"
+        },
+        "summary_of_changes": {
+          "type": "string"
+        },
+        "open_questions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence_note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
